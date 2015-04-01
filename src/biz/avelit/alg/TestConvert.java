@@ -22,4 +22,19 @@ public class TestConvert {
     assertEquals(expectedResult, result);
   }
 
+  @Test
+  public void testSimpleBraces() {
+    String notation = "(10+10*10)*10";
+    String result = (new ConvertToReversePolishNotation(notation)).convert();
+    String expectedResult = "10 10 10 * + 10 * ";
+    assertEquals(expectedResult, result);
+  }
+
+  @Test
+  public void test2Braces() {
+    String notation = "((10+10)*10)*10";
+    String result = (new ConvertToReversePolishNotation(notation)).convert();
+    String expectedResult = "10 10 + 10 * 10 * ";
+    assertEquals(expectedResult, result);
+  }
 }
